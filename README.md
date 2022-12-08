@@ -127,3 +127,83 @@ https://www.brainscape.com/flashcards/fundamentals-of-vpn-technology-and-crypt-6
     b. PKCS#10
     c. √ SCEP
     d. LDAP
+
+### 6 - Fundamentals of IP Security
+https://www.brainscape.com/flashcards/fundamentals-of-ip-security-6435415/packs/10114503
+
+**Which technology is a primary method that IPsec uses to implement data integrity?**
+
+    a. √ MD5
+    b. AES
+    c. RSA
+    d. DH
+
+**What are the source, destination addresses used for encrypted IPsec packets?**
+
+    a. Original sender and receiver IP addresses
+    b. Original sender’s and outbound VPN gateway’s addresses
+    c. √ Sending and receiving VPN gateways
+    d. Sending VPN gateway and original destination address in the packet
+
+**Which phase is used for private management traffic between the two VPN peers?**
+
+    a. IPsec
+    b. √ IKE Phase 1
+    c. IKE Phase 2
+    d. IKE Phase 3
+
+**What are negotiated during IKE Phase 1?** (Multiple Choice)
+
+    a. √ Hashing
+    b. √ DH group
+    c. √ Encryption
+    d. √ Authentication method
+
+**Which methods are used to allow 2 VPN peers to establish shared secret keys over an untrusted network?**
+
+    a. AES
+    b. SHA
+    c. RSA
+    d. √ Diffie-Hellman (DH)
+
+**Which of the following is not part of IKE Phase 1?** (Multiple Choice)
+
+    a. √ Negotiation of the IKE Phase 1 protocols
+    b. √ Running DH
+    c. √ Authenticating the peer
+    d. Negotiating the transform set to use
+
+**How is the negotiation of the IPsec (IKE Phase2) tunnel done securely?**
+
+    a. √ Uses the IKE Phase 1 tunnel
+    b. Uses the IPsec tunnel
+    c. Uses the IKE Phase 2 tunnel
+    d. Uses RSA
+
+**Which main methods authenticate a peer as the last step of IKE Phase 1?** (Multiple Choice)
+
+    a. √ RSA signatures, using digital certificates to exchange public keys
+    b. √ PSK (pre-shared key)
+    c. DH Group 2
+    d. TCP three-way handshake
+
+**Which component acts as an if-then statement looks for packets that should be encrypted before leaving an interface?**
+
+    a. crypto isakmp policy
+    b. √ crypto map
+    c. crypto ipsec transform-set
+    d. crypto access-list (access list used for cryptography)
+
+**Which symmetrical algorithms & symmetrical crypto ACLs on VPN peers is true?**
+
+    a. √ Symmetrical algorithms use the same secret (key) to lock and unlock the data. Symmetrical ACLs between two VPN peers should symmetrically swap the source and destination portions of the ACL.
+    b. Symmetrical algorithms like RSA use the same secret (key) to lock and unlock the data. Symmetrical ACLs between two VPN peers should symmetrically swap the source and destination portions of the ACL.
+    c. Symmetrical algorithms use the same secret (key) to lock and unlock the data. Symmetrical ACLs between two VPN peers should be identical.
+    d. Symmetrical algorithms use the same secret (key) to lock and unlock the data. Symmetrical ACLs between two VPN peers require that only symmetrical algorithms be used for all aspects of IPsec.
+
+**Which command reveal the ACLs, transform sets, peer information & indicate the interface used to connect to remote IPsec VPN peer?**
+
+    a. √ show crypto map
+    b. show crypto isakmp policy
+    c. show crypto config
+    d. show crypto ipsec sa
