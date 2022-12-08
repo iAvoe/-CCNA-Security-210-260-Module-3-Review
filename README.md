@@ -330,12 +330,19 @@ https://www.brainscape.com/flashcards/implementing-ipsec-site-to-site-vpns-64384
     c. √ 5
     d. 6
 
-**Which are not part of an IKEv1 Phase 2 process?** (Multiple Choice)
+**Which are part of an IKEv1 Phase 2 process?** (Multiple Choice)
 
     a. Main mode
     b. √ Specifying a hash (HMAC)
     c. √ Running DH (PFS)
     d. √ Negotiating the transform set to use
+
+**Which is NOT part of an IKEv1 Phase 2 process?**
+
+    a. √ Main mode
+    b. Specifying a hash (HMAC)
+    c. Running DH (PFS)
+    d. Negotiating the transform set to use
 
 **Which encryption method will be used to protect the negotiation of the IPsec (IKEv1 Phase 2) tunnel?**
 
@@ -387,3 +394,37 @@ https://www.brainscape.com/flashcards/implementing-ipsec-site-to-site-vpns-64384
     d. √ show vpn-sessiondb
 
 **The Cisco ASA CANNOT be configured with more than one IKEv1 or IKEv2 policy**: False
+
+**Specify the device name where site-to-site VPNs are terminated**: Firewall
+
+**Specify what kind of keys are used /configured at both sides for VPN**: Pre-shared keys; Certificates
+
+**What is a framework of open standards that provides secure encrypted comms over an IP network**: IPSec
+
+**What protocols does IPSec use for encryption**: Internet Key Exchange (IKE); ISAKMP
+
+**What handles negotiations of protocols and algorithms, generates encryption and authentication keys**: Internet Key Exchange (IKE)
+
+**What defines the procedures for authenticating & communicating peer creation & management of security associations**: ISAKMP
+
+**What does IPSec use to protect against replay attacks**: Authentication header (AH) OR Encapsulating Security Payload (ESP)
+
+**What is more commonly used due to the corresponding option has a lack of confidentiality**: Encapsulating Security Payload (ESP) is more commonly used against authentication header (AH), which lacks of confidentiality
+
+**Why is IPSec's ESP Transport Mode not often used versus ESP Tunnel Mode**: ESP Tunnel prevents internal routing info leaks by encrypting the IP header
+
+**Compare how does IPSec's ESP Transport & Tunnel Mode encrypt a packet**:
+
+    - Encrypt TCP header: ESP Transport ×, ESP Tunnel √
+    - Encrypt IP header:  ESP Transport ×, ESP Tunnel √
+    - Encrypt payload:    ESP Transport √, ESP Tunnel √
+    
+**Compare how does IPSec's ESP Transport & Tunnel Mode authenticate a packet**:
+
+    - Auth IP header:  ESP Transport ×, ESP Tunnel √ (ESP header is added after IP header in transport mode, before in tunnel mode)
+    - Auth ESP header: ESP Transport √, ESP Tunnel √ (same)
+    - Auth payload:    ESP Transport √, ESP Tunnel √
+
+**Which IPSec more is best to used under client-to-site VPN application**: use ESP Transport modewhen another tunneling protocol (jGRE, L2TP) is used to 1st encapsulate IP packets' payload, then IPSec is used to protect the GRE/L2TP tunnel packets
+
+
