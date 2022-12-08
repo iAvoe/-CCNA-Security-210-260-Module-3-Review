@@ -118,14 +118,14 @@ https://www.brainscape.com/flashcards/fundamentals-of-vpn-technology-and-crypt-6
 
 **Explain PKCS#10**:
 
-    -. A certificate request format sent to CA that wants to receive its identity certificate.
-    -. Requires public key for the entry desiring a certificate
+    - A certificate request format sent to CA that wants to receive its identity certificate.
+    - Requires public key for the entry desiring a certificate
     
 **Explain PKI topology**:
 
-    -. PKIs can form different topologies of trust
-    -. In singular model, a single CA / root CA issues all the certificates to the end users
-    -. In Siabardinele model, CAs can issue certificates to both end users & subordinate CAs (thus elect sub-CAs to become valid issuer)
+    - PKIs can form different topologies of trust
+    - In singular model, a single CA / root CA issues all the certificates to the end users
+    - In Siabardinele model, CAs can issue certificates to both end users & subordinate CAs (thus elect sub-CAs to become valid issuer)
 
 **When obtaining the initial root certificate, what method should be used for validation of the certificate?**
 
@@ -136,17 +136,17 @@ https://www.brainscape.com/flashcards/fundamentals-of-vpn-technology-and-crypt-6
 
 **List root certificate components**:
 
-    -. Serial number
-    -. Issuer
-    -. Validity dates
-    -. Subject
-    -. Public key
-    -. Thumbprint algorithm & thumbprint data
-    -. CRL Location
+    - Serial number
+    - Issuer
+    - Validity dates
+    - Subject
+    - Public key
+    - Thumbprint algorithm & thumbprint data
+    - CRL Location
 
 **Explain X.509 & X.509v3 certificates**
 
-    -. A series of standards focused on directory services & how those directory services are organized
+    - A series of standards focused on directory services & how those directory services are organized
 
 **Simplest method to use when implementing identity certificates on the client (supported by both client & CA)?**
 
@@ -155,13 +155,27 @@ https://www.brainscape.com/flashcards/fundamentals-of-vpn-technology-and-crypt-6
     c. √ SCEP
     d. LDAP
 
-**List 3 types of VPNs?**: IPSec, SSL, MPLS
+**Explain cipher & cipher types**:
 
-**Explain IPSec-based VPNs**: Layer 3 security method, supports site-to-site & remote-access VPN application
+    - The string used for encryption & decryption
+    - Substitution: replace characters with other characters, but keeps their original position
+    - Polyalphabetic: using multiple substitution possibility to enhance substitution cipher
+    - Transposition: reposition of charachers, but the characters are the same
+
+**List 3 types of VPNs?** IPSec, SSL, MPLS
+
+**Explain IPSec-based VPNs**:
+
+    - Layer 3 security method
+    - supports site-to-site & remote-access VPN
+    - provides confidentiality by encrypting
+    - provides data integrity through HMAC & hashing
+    - provides authentication via digital signatures or pre-shared key
 
 **Explain SSL-based VPNs**: TCP session security (over layer 6 encrypted SSL tunnels), can be used for remote-access VPN, https applications
 
 **Explain MPLS-based VPNs**: Multiprotocol Label Switching (MPLS) VPN suppoers point-to-point, layer 2 (VPLS/'switch-in-cloud"), & layer 3 (virtual routing & forwarding - VPRN / VPLS with routing). Supports best with site-to-site, multi-site application
+
 
 **Review: list symmetric, asymmetric & hashing algorithms separately**:
 
