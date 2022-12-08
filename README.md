@@ -23,12 +23,14 @@ https://www.brainscape.com/flashcards/fundamentals-of-vpn-technology-and-crypt-6
     c. HTTPS
     d. √ Ipsec
 
-**Which 2 of the following are benefits of VPNs?** (Multiple choice)
+**Which are the following are benefits of VPNs?** (Multiple choice)
 
     a. Hashing
     b. √ Confidentiality
     c. Diffie-Hellman
     d. √ Data integrity
+    e. √ Authentication
+    f. √ Transposition
 
 **Which of the following are symmetrical encryption ciphers?** (Multiple choice)
 
@@ -114,12 +116,37 @@ https://www.brainscape.com/flashcards/fundamentals-of-vpn-technology-and-crypt-6
     c. LDAP
     d. TLS/SSL/HTTPS
 
+**Explain PKCS#10**:
+
+    -. A certificate request format sent to CA that wants to receive its identity certificate.
+    -. Requires public key for the entry desiring a certificate
+    
+**Explain PKI topology**:
+
+    -. PKIs can form different topologies of trust
+    -. In singular model, a single CA / root CA issues all the certificates to the end users
+    -. In Siabardinele model, CAs can issue certificates to both end users & subordinate CAs (thus elect sub-CAs to become valid issuer)
+
 **When obtaining the initial root certificate, what method should be used for validation of the certificate?**
 
     a. Sender’s public key
     b. √ Telephone
     c. HTTPS/TLS/SSL
     d. Receiver’s private key
+
+**List root certificate components**:
+
+    -. Serial number
+    -. Issuer
+    -. Validity dates
+    -. Subject
+    -. Public key
+    -. Thumbprint algorithm & thumbprint data
+    -. CRL Location
+
+**Explain X.509 & X.509v3 certificates**
+
+    -. A series of standards focused on directory services & how those directory services are organized
 
 **Simplest method to use when implementing identity certificates on the client (supported by both client & CA)?**
 
@@ -135,6 +162,18 @@ https://www.brainscape.com/flashcards/fundamentals-of-vpn-technology-and-crypt-6
 **Explain SSL-based VPNs**: TCP session security (over layer 6 encrypted SSL tunnels), can be used for remote-access VPN, https applications
 
 **Explain MPLS-based VPNs**: Multiprotocol Label Switching (MPLS) VPN suppoers point-to-point, layer 2 (VPLS/'switch-in-cloud"), & layer 3 (virtual routing & forwarding - VPRN / VPLS with routing). Supports best with site-to-site, multi-site application
+
+**Review: list symmetric, asymmetric & hashing algorithms separately**:
+
+    - Symmetric: DES, 3DES, AES, IDEA, RC2/3/4/5/6, Blowfish
+    - Asymmetric: RSA, DH, ElGamal, DSA, ECC
+    - Hashing: MD5, SHA, SHA2
+
+**Review: list HMAC components**: hash string & secret key
+
+**Review: list benefits of digital signatures**: Authentication; Data integrity; Nonrepudation
+
+
 
 ### 6 - Fundamentals of IP Security
 https://www.brainscape.com/flashcards/fundamentals-of-ip-security-6435415/packs/10114503
