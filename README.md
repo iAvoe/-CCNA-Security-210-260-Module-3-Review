@@ -427,4 +427,132 @@ https://www.brainscape.com/flashcards/implementing-ipsec-site-to-site-vpns-64384
 
 **Which IPSec more is best to used under client-to-site VPN application**: use ESP Transport modewhen another tunneling protocol (jGRE, L2TP) is used to 1st encapsulate IP packets' payload, then IPSec is used to protect the GRE/L2TP tunnel packets
 
+### 8 - Implementing IPsec Site-to-Site VPNs
+https://www.cram.com/flashcards/8-implementing-ssl-vpns-7190381
 
+**Choose the SSL solution for remote user with untrusted device to access a server at the central office.**
+
+    a. SSL thin client
+    b. √ SSL clientless VPN
+    c. Cisco AnyConnect Secure Mobility Client SSL VPN client
+    d. IPsec VPN client
+
+**Which one assigns virtual IP for remote users to communicate to server with SSL VPN?**
+
+    a. SSL thin client
+    b. SSL clientless VPN
+    c. √ Cisco AnyConnect Secure Mobility Client
+    d. IPsec VPN client
+
+**Specify mobility benefits of using SSL VPNs**: Supported on all major internet browsers
+
+**What's the immediate cost savings when implementing SSL VPNs?**
+
+    a. No licensing is required on the server.
+    b. No licensing is required on the clients.
+    c. √ Easy deployment.
+    d. SSL VPN licenses are significantly less expensive on the server than IPsec licenses.
+
+**How does an SSL client send the desired shared secret to the server?**
+
+    a. AES.
+    b. √ Encrypts it with the server’s public key.
+    c. Encrypts it with the sender’s public key.
+    d. They use DH to negotiate the shared secret.
+
+**Which is part of configuring the clientless SSL VPN on ASA?** (Multiple Choice)
+
+    a. √ Launching the wizard
+    b. √ Specifying the URL
+    c. √ Configuring bookmarks
+    d. Configuring a pool of IP addresses for the remote users to use
+    
+**Which is NOT part of configuring the clientless SSL VPN on ASA?**
+
+    a. Launching the wizard
+    b. Specifying the URL
+    c. Configuring bookmarks
+    d. √ Configuring a pool of IP addresses for the remote users to use
+
+**What may be the potential problem as enabling SSL VPNs on interface of ASA?**
+
+    a. ASDM is now disabled on that interface.
+    b. ASDM must be additionally configured with a custom port.
+    c. √ ASDM must be used with a different URL.
+    d. ASDM is not affected because it does not connect on port TCP:443.
+
+**Which steps are to setup Cisco AnyConnect Secure Mobility Client (that would not be configured for clientless SSL VPN)?** (Multiple Choice)
+
+    a. √ NAT exemption
+    b. √ Pool of addresses
+    c. Connection profile
+    d. Authentication method
+
+**Where does the ASA keep the copy of Cisco AnyConnect Secure Mobility Client (that may be deployed down to the client)?**
+
+    a. On an HTTPS server only
+    b. √ On flash
+    c. On an SFTP server only
+    d. On NVRAM
+
+**Select common issues that users experience when they cannot send or receive IP traffic over an SSL VPN tunnel?** (Multiple Choice)
+
+    a. √ Routing issues behind the ASA
+    b. √ Access control lists blocking traffic
+    c. Too much traffic for the VPN tunnel size
+    d. √ NAT not being bypassed for VPN traffic
+
+**What does ASA stand for, and what is it's purpose**: Adaptive Security Appliance, for cobmining several firewall in different layers into 1 device (ACLs, Zones, etc)
+
+**List OS platforms that chooses L2TP VPN over IPSec VPN**: Windows & Android 2.1 (or later)
+
+**ASA allows mobile and remote users to establish IPsec VPN tunnels by**:
+
+    - Cisco Anyconnect secure mobility client (SSL VPN or IKEv2)
+    - provided Built-in clients on OSes such as OS X, and Apple iOS products
+
+
+**Both L2TP & IPSec supports IKEv2**: False, only IPSec. IKEv2 is a key exchange encryption protocol based on IPSec, which introduces compatibility 
+    
+**List features that are not supported in IKEv2**:
+
+    - Windows IKEv2 clients or any 3rd party IKEv2 clients
+    - PSK authentications (client or server)
+    - IKEv2 encryption for load-balancing (to other ASAs)
+    - L2TP over IPsec
+    - Reauthentication
+    - Peer ID check
+    - Compression/IPcomp
+    - Network Admission Control (Posture)
+    - 3rd party firewalls
+    - Hardware client support for IKEv2, except the ASA 5505 as a headend using IKEv2 is supported
+
+**Compare IPsec-handled versus L2TP-over-IPSec encryption, encapsulation/transport & authentication**:
+
+    - encryption:     both uses ESP or AH protocol under IPSec
+    - encapsulation:  IPSec uses ESP50/UDP4500, L2TP uses UDP1702
+    - authentication: IPSec uses ISAKMP, L2TP uses PPP (PAP & CHAP)
+
+**Best mode for IKEv1 encryption**: main mode, this enables RSA signature for security
+
+**Compare IKEv1 & IKEv2 connection on negotiation**:
+
+    - IKEv1: phase 1 negotiation is done in 6 messages in main mode; 3 msgs in aggressive mode
+    - IKEv2: phase 1 negotiation is done in 4 messages. EAP performs the additions
+
+**Compare IKEv1 & IKEv2 connection on reliability**:
+
+    - IKEv1: does absolutely nothing
+    - IKEv2: acknowledges & uses sequence numbers for it's connections & negotiations
+
+**Compare IKEv1 & IKEv2 connection on authentication**:
+
+    - IKEv1: does absolutely nothing
+    - IKEv2: EAP authentication
+    
+
+**Compare IKEv1 & IKEv2 connection on suite-B cryptographic standard**:
+
+    - IKEv1: doesn't support suite-B
+    - IKEv2: AES
+    - Suite-B: AES, SHA-2, ECDSA, ECDH
