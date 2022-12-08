@@ -128,6 +128,14 @@ https://www.brainscape.com/flashcards/fundamentals-of-vpn-technology-and-crypt-6
     c. √ SCEP
     d. LDAP
 
+**List 3 types of VPNs?**: IPSec, SSL, MPLS
+
+**Explain IPSec-based VPNs**: Layer 3 security method, supports site-to-site & remote-access VPN application
+
+**Explain SSL-based VPNs**: TCP session security (over layer 6 encrypted SSL tunnels), can be used for remote-access VPN, https applications
+
+**Explain MPLS-based VPNs**: Multiprotocol Label Switching (MPLS) VPN suppoers point-to-point, layer 2 (VPLS/'switch-in-cloud"), & layer 3 (virtual routing & forwarding - VPRN / VPLS with routing). Supports best with site-to-site, multi-site application
+
 ### 6 - Fundamentals of IP Security
 https://www.brainscape.com/flashcards/fundamentals-of-ip-security-6435415/packs/10114503
 
