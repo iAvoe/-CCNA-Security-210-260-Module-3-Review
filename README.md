@@ -46,6 +46,8 @@ https://www.brainscape.com/flashcards/fundamentals-of-vpn-technology-and-crypt-6
     c. SHA1
     d. AES
 
+**Explain Hashed Message Authentication Code (HMAC)**: secret key based hashing authentication, cannot perform hashing without key
+
 **What is used to encrypt the hash in a digital signature?**
 
     a. Sender’s public key
@@ -116,10 +118,17 @@ https://www.brainscape.com/flashcards/fundamentals-of-vpn-technology-and-crypt-6
     c. LDAP
     d. TLS/SSL/HTTPS
 
+
+**Explain PKCS#7**: The certificate itself in response of PKCS#10
+
 **Explain PKCS#10**:
 
     - A certificate request format sent to CA that wants to receive its identity certificate.
     - Requires public key for the entry desiring a certificate
+    
+**Explain PKCS#12**:
+
+    - A file that stores public & private keys pritected by a symmetric password
     
 **Explain PKI topology**:
 
@@ -161,8 +170,15 @@ https://www.brainscape.com/flashcards/fundamentals-of-vpn-technology-and-crypt-6
     - Substitution: replace characters with other characters, but keeps their original position
     - Polyalphabetic: using multiple substitution possibility to enhance substitution cipher
     - Transposition: reposition of charachers, but the characters are the same
+    
 
-**List 3 types of VPNs?** IPSec, SSL, MPLS
+**Review: Explain block & stream ciphers**:
+
+    - block: a symmetric key cipher that operates on a bit-block spanning on multiple charachers
+    - stream: the cipher that encrypts 1 bit / character at a time
+    - The block cipher has more overhead
+
+**List 3 types of VPNs**: IPSec, SSL, MPLS
 
 **Explain IPSec-based VPNs**:
 
@@ -172,16 +188,23 @@ https://www.brainscape.com/flashcards/fundamentals-of-vpn-technology-and-crypt-6
     - provides data integrity through HMAC & hashing
     - provides authentication via digital signatures or pre-shared key
 
-**Explain SSL-based VPNs**: TCP session security (over layer 6 encrypted SSL tunnels), can be used for remote-access VPN, https applications
+**Explain SSL-based VPNs**: TCP session security (over layer 6 encrypted SSL tunnels), can be used for remote-access VPN, https applications. Every web browser supports SSL makes it available for everyone
 
 **Explain MPLS-based VPNs**: Multiprotocol Label Switching (MPLS) VPN suppoers point-to-point, layer 2 (VPLS/'switch-in-cloud"), & layer 3 (virtual routing & forwarding - VPRN / VPLS with routing). Supports best with site-to-site, multi-site application
-
 
 **Review: list symmetric, asymmetric & hashing algorithms separately**:
 
     - Symmetric: DES, 3DES, AES, IDEA, RC2/3/4/5/6, Blowfish
     - Asymmetric: RSA, DH, ElGamal, DSA, ECC
-    - Hashing: MD5, SHA, SHA2
+    - Hashing (popular types): MD5, SHA, SHA2
+
+**Review: Explain what is hashing**:
+
+    - a one-way algorithm to verify data intergrity (hash string can only be produced by data block)
+    - by taking blocks of data and create a small fixed size hash string
+    - the same data will produce the same hash string
+
+**Review: which algorithm is the faster**: symmetric algorithm is faster than asymmetric
 
 **Review: list HMAC components**: hash string & secret key
 
@@ -268,3 +291,99 @@ https://www.brainscape.com/flashcards/fundamentals-of-ip-security-6435415/packs/
     b. show crypto isakmp policy
     c. show crypto config
     d. show crypto ipsec sa
+
+### 7 - Implementing IPsec Site-to-Site VPNs
+https://www.brainscape.com/flashcards/implementing-ipsec-site-to-site-vpns-6438431/packs/10114503
+
+**Which could be part of both an IKEv1 Phase 1 and IKEv1 Phase 2 policy?** (Multiple Choice)
+
+    a. √ MD5
+    b. √ AES
+    c. RSA
+    d. √ DH
+
+**How is it possible that a packet with private L3 destination address is forwarded over Internet?**
+
+    a. √ It's encapsulated into another packet, and Internet only sees the outside valid IP destination address.
+    b. It cannot be sent. It will always be dropped.
+    c. The Internet does not filter private addresses, only some public addresses, based on policy.
+    d. NAT is used to change the destination IP address before the packet is sent.
+
+**What is the method for specifying the IKEv1 Phase 2 encryption method?**
+
+    a. Crypto ACLs
+    b. crypto isakmp policy
+    c. √ crypto ipsec transform-set
+    d. RSA signatures
+
+**Which one potentially could be negotiated during IKEv1 Phase 2?** (Multiple Choice)
+
+    a. √ Hashing
+    b. √ DH group
+    c. √ Encryption
+    d. Authentication method
+
+**Which of the DH groups is the most prudent to use when security is of the utmost importance?**
+
+    a. 1
+    b. 2
+    c. √ 5
+    d. 6
+
+**Which are not part of an IKEv1 Phase 2 process?** (Multiple Choice)
+
+    a. Main mode
+    b. √ Specifying a hash (HMAC)
+    c. √ Running DH (PFS)
+    d. √ Negotiating the transform set to use
+
+**Which encryption method will be used to protect the negotiation of the IPsec (IKEv1 Phase 2) tunnel?**
+
+    a. The one negotiated in the transform set.
+    b. The one negotiated for the IKEv1 Phase 2 tunnel.
+    c. √ The one negotiated in the ISAKMP policy.
+    d. There is no encryption during this time; that is why DH is used.
+
+**Which is the most secure method for authentication of IKEv1 Phase 1?**
+
+    a. √ RSA signatures, using digital certificates to exchange public keys
+    b. PSK
+    c. DH group 5
+    d. Symmetrical AES-256
+
+**Which component is not placed directly in a crypto map?**
+
+    a. √ Authentication policy
+    b. ACL
+    c. Transform set
+    d. PFS
+
+**Which one would cause a IPsec VPN tunnel never initializes / works?** (Multiple Choice)
+
+    a. √ Incompatible IKEv1 Phase 2 transform sets
+    b. Incorrect pre-shared keys or missing digital certificates
+    c. Lack of interesting traffic
+    d. Incorrect routing
+
+**Which one IKE versions are supported by the Cisco ASA?** (Multiple Choice)
+
+    a. √ IKEv1
+    b. √ IKEv2
+    c. √ IKEv3
+    d. √ IKEv4
+
+**What is NAT exemption for?**
+
+    a. To bypass NAT in the remote peer
+    b. To bypass NAT for all traffic not sent over the IPsec tunnel
+    c. √ To bypass NAT for traffic in the VPN tunnel
+    d. To never bypass NAT in the local or remote peer
+
+**Which one commands are useful when troubleshooting VPN problems in the Cisco ASA?** (Multiple Choice)
+
+    a. √ show isakmp sa detail
+    b. √ debug crypto ikev1 | ikev2
+    c. √ show crypto ipsec sa detail
+    d. √ show vpn-sessiondb
+
+**The Cisco ASA CANNOT be configured with more than one IKEv1 or IKEv2 policy**: False
